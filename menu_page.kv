@@ -1,0 +1,37 @@
+
+
+<Menu@BoxLayout>:
+    orientation: "vertical"
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex(color3)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: "vertical"
+        size_hint: 1, None
+        height: 100
+        TextInput:
+            id: search_box
+            hint_text: "Enter Hymn No."
+            size_hint_y: None
+            height: "40dp"
+            multiline: False
+        Button:
+            text: "Submit"
+            size_hint_y: None
+            height: "40dp"
+            on_press: root.search(search_box.text)
+    ScrollView:
+        GenerateButtons:
+            size_hint: 1, None
+            height: self.minimum_height
+
+<GenerateButtons>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex(color3)
+        Rectangle:
+            pos: self.pos
+            size: self.size

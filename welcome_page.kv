@@ -1,0 +1,46 @@
+#: import utils kivy.utils
+#: set color1 "#10D4FF"
+#: set color2 "#900E0E"
+#: set color3 "#BCEFFA"
+#: set color4 "#FFFFFF"
+
+
+
+<MainWidget>:
+    progress_bar: progress_bar
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex(color3)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex(color2)
+            Rectangle:
+                size: self.width/2, 5
+                pos: self.center_x/2,self.center_y-4
+        Label:
+            text: "Efik Hymn\nNwed Ikwo"
+            bold: True
+            color: utils.get_color_from_hex(color2)
+            font_size: dp(40)
+            text_size: self.size
+            halign: "center"
+            valign: "middle"
+            #top: root.top - 200
+    BoxLayout:
+        size_hint_y: None
+        height: dp(100)
+        pos_hint: {'bottom': 1}
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex(color3)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        ProgressBar:
+            id: progress_bar
+            max: 5
+            # value: root.parent.parent.progress_bar

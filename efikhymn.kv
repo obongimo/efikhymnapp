@@ -1,0 +1,45 @@
+#: import utils kivy.utils
+#: import navigation_screen_manager navigation_screen_manager
+#: import welcome_page welcome_page
+#: import menu_page menu_page
+#: import hymn_page hymn_page
+#: set color1 "#10D4FF"
+#: set color2 "#900E0E"
+#: set color3 "#BCEFFA"
+#: set color4 "#FFFFFF"
+
+
+<NavigationScreenManager>:
+    Screen:
+        name: "welcome_page"
+        MainWidget:
+    Screen:
+        name: "menu_page"
+        Menu:
+    Screen:
+        id: hymn_screen
+        name: "hymn_page"
+        BoxLayout:
+            orientation: "vertical"
+            ActionBar:
+                ActionView:
+                    ActionPrevious:
+                        title: "Menu"
+                        on_release: root.pop()
+                        app_icon: ""
+            HymnPage:
+
+<SearchBox>:
+    orientation: 'horizontal'
+    padding: 10
+
+    TextInput:
+        id: search_input
+        text: ''
+        multiline: False
+        on_text: root.on_text(self.text)
+
+    Button:
+        text: 'Search'
+        on_press: root.on_search(search_input.text)
+

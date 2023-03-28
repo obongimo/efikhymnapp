@@ -1,0 +1,40 @@
+
+
+<HymnPage>
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex(color3)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        cols: 3
+        size_hint: 1, None
+        height: "100dp"
+        Image:
+            source: "images/playback_btn.png"
+        Label:
+            id: hymn_no
+            text: "1"
+            font_size: "80dp"
+            color: 0, 0, 0, 1
+        Image:
+            source: "images/search_icon.png"
+    ScrollView:
+        GenerateHymn:
+            size_hint: 1, None
+            height: "750dp"
+
+<GenerateHymn@GridLayout>:
+    cols:1
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex(color4)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id: hymn_label
+        text: self.parent.parent.parent.text
+        color: (1, 0, 0 ,1)
