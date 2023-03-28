@@ -10,15 +10,19 @@
 
 
 <NavigationScreenManager>:
+    id: screen_manager
     Screen:
         name: "welcome_page"
         MainWidget:
     Screen:
+        id: menu_screen
         name: "menu_page"
+        manager: screen_manager
         Menu:
     Screen:
         id: hymn_screen
         name: "hymn_page"
+        manager: screen_manager
         BoxLayout:
             orientation: "vertical"
             ActionBar:

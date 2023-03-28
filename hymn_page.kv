@@ -1,6 +1,8 @@
 
 
 <HymnPage>
+    hymn_label: hymn_label
+    hymn_no: hymn_no
     orientation: "vertical"
     canvas.before:
         Color:
@@ -25,16 +27,28 @@
         GenerateHymn:
             size_hint: 1, None
             height: "750dp"
+            cols:1
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex(color4)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                id: hymn_label
+                text: self.parent.parent.parent.text
+                color: (1, 0, 0 ,1)
 
-<GenerateHymn@GridLayout>:
-    cols:1
-    canvas.before:
-        Color:
-            rgba: utils.get_color_from_hex(color4)
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    Label:
-        id: hymn_label
-        text: self.parent.parent.parent.text
-        color: (1, 0, 0 ,1)
+#<GenerateHymn>:
+#    hymn_label: hymn_label
+#    cols:1
+#    canvas.before:
+#        Color:
+#            rgba: utils.get_color_from_hex(color4)
+#        Rectangle:
+#            pos: self.pos
+#            size: self.size
+#    Label:
+#        id: hymn_label
+#        text: self.parent.parent.parent.text
+#        color: (1, 0, 0 ,1)

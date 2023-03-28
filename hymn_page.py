@@ -1,24 +1,22 @@
 from kivy.lang import Builder
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
+from navigation_screen_manager import NavigationScreenManager
 
 Builder.load_file("hymn_page.kv")
 
 
 class HymnPage(BoxLayout):
+    hymn_label = ObjectProperty()
+    hymn_no = ObjectProperty()
+    text = StringProperty()
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        file = open('hymns/1.txt', 'r', encoding='utf-8')
-        self.text = file.read()
-
-        print(self.text)
-
-        file.close()
+    def on_touch_down(self, touch):
+        self.text = NavigationScreenManager.hymn_temp
 
 
-# class CustomLayout(FloatLayout):
-#     pass
-
+class GenerateHymn(GridLayout):
+    pass

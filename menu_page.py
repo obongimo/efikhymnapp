@@ -3,6 +3,7 @@ from kivy.metrics import dp
 from kivy.properties import ObjectProperty, NumericProperty, StringProperty
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from navigation_screen_manager import NavigationScreenManager
 
 Builder.load_file("menu_page.kv")
 
@@ -28,8 +29,7 @@ class GenerateButtons(GridLayout):
         self.hymn = file.read()
 
         file.close()
-
-        print(self.parent.parent.parent.parent.ids['hymn_screen'])
+        NavigationScreenManager.hymn_temp = self.hymn
 
         set_screen = self.parent.parent.parent.parent
         set_screen.push("hymn_page")
